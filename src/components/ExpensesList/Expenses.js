@@ -11,13 +11,16 @@ export default function Expenses({ data }) {
 		setSelectedYear(newYearFilter);
 	};
 
+	const expensesForSelectedYear = data.filter(
+		(expense) => expense.date.getFullYear().toString() === selectedYear
+	);
 	return (
 		<Card className="expenses" testid="expenses1">
 			<ExpenseFilter
 				selectedYear={selectedYear}
 				onYearChange={fliterChangeHandler}
 			></ExpenseFilter>
-			{data.map((expense) => (
+			{expensesForSelectedYear.map((expense) => (
 				<ExpenseItem
 					key={expense.id}
 					date={expense.date}
