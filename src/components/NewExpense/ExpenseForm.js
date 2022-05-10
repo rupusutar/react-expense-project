@@ -23,7 +23,7 @@ export default function ExpenseForm({ onNewExpenseSave, onCancel }) {
 
 		const newExpenseData = {
 			title: title,
-			amount: amount,
+			amount: +amount,
 			date: new Date(date),
 		};
 		onNewExpenseSave(newExpenseData);
